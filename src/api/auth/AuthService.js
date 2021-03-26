@@ -13,7 +13,7 @@ export default class AuthService {
     if (!user) throw new IncorrectCredentials();
     const { password: userPassword, ...userData } = user;
     const validPassword = await validatePassword(password, userPassword);
-    if (!validPassword) throw new IncorrectCredentials();
+    if (!validPassword) throw new IncorrectCredentials(true);
     const payload = { user: userData };
     const response = {
       token: jwt.sign(payload, config.secret, { expiresIn: '1h' }),
