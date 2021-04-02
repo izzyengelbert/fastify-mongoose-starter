@@ -25,13 +25,8 @@ class App {
   }
 
   _registerPlugins() {
-  // server.use(cors());
     this.server.decorate('authenticate', authenticate).register(fastifyAuth);
     this.server.register(printRoutes);
-  // Example custom logger
-  // server.use(morgan(':method :url :status :res[content-length] - :response-time ms'));
-  // server.use(morgan('tiny'));
-  // this.server.use(bodyParser.json());
   }
 
   initializeApp() {
